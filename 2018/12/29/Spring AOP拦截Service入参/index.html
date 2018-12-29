@@ -108,14 +108,20 @@
 
 
 
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Varshon Wood&#39;s BLOG">
-<meta property="og:url" content="http://yoursite.com/index.html">
+  <meta name="description" content="Spring AOP拦截Service中内部相互调用的方法入参时需要注意一下几点：  Service中AOP拦截Service时依赖Bean的代理对象，而不是Bean自身，因此 Service中内部类相互间调用不能直接使用xx()或者this.xx()，要注入代理对象到Bean中，然后使用代理对象的方法进行调用 由于Service层在Spring中注册的都是接口类型，所以代理对象只有对依赖接口">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Spring AOP 拦截Service 入参">
+<meta property="og:url" content="http://yoursite.com/2018/12/29/Spring AOP拦截Service入参/index.html">
 <meta property="og:site_name" content="Varshon Wood&#39;s BLOG">
+<meta property="og:description" content="Spring AOP拦截Service中内部相互调用的方法入参时需要注意一下几点：  Service中AOP拦截Service时依赖Bean的代理对象，而不是Bean自身，因此 Service中内部类相互间调用不能直接使用xx()或者this.xx()，要注入代理对象到Bean中，然后使用代理对象的方法进行调用 由于Service层在Spring中注册的都是接口类型，所以代理对象只有对依赖接口">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2018-12-29T08:48:14.668Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Varshon Wood&#39;s BLOG">
+<meta name="twitter:title" content="Spring AOP 拦截Service 入参">
+<meta name="twitter:description" content="Spring AOP拦截Service中内部相互调用的方法入参时需要注意一下几点：  Service中AOP拦截Service时依赖Bean的代理对象，而不是Bean自身，因此 Service中内部类相互间调用不能直接使用xx()或者this.xx()，要注入代理对象到Bean中，然后使用代理对象的方法进行调用 由于Service层在Spring中注册的都是接口类型，所以代理对象只有对依赖接口">
 
+
+  
 
 
   <link rel="alternate" href="/atom.xml" title="Varshon Wood's BLOG" type="application/atom+xml">
@@ -123,7 +129,7 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/">
+  <link rel="canonical" href="http://yoursite.com/2018/12/29/Spring AOP拦截Service入参/">
 
 
 
@@ -133,7 +139,7 @@
   };
 </script>
 
-  <title>Varshon Wood's BLOG</title>
+  <title>Spring AOP 拦截Service 入参 | Varshon Wood's BLOG</title>
   
 
 
@@ -180,8 +186,7 @@
     
   
 
-  <div class="container sidebar-position-left 
-  page-home">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
@@ -218,7 +223,7 @@
         
         
           
-          <li class="menu-item menu-item-home menu-item-active">
+          <li class="menu-item menu-item-home">
     <a href="/" rel="section">
       <i class="menu-item-icon fa fa-fw fa-home"></i> <br>Home</a>
   </li>
@@ -262,9 +267,9 @@
           
           <div id="content" class="content">
             
-  <section id="posts" class="posts-expand">
+
+  <div id="posts" class="posts-expand">
     
-      
 
   
 
@@ -296,11 +301,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/12/29/Spring AOP拦截Service入参/" itemprop="url">
-                  Spring AOP 拦截Service 入参
-                </a>
+          <h1 class="post-title" itemprop="name headline">Spring AOP 拦截Service 入参
               
             
           </h1>
@@ -363,17 +364,13 @@
       
 
       
-        
-          
-            <p>Spring AOP拦截Service中内部相互调用的方法入参时需要注意一下几点：</p>
+        <p>Spring AOP拦截Service中内部相互调用的方法入参时需要注意一下几点：</p>
 <ol>
 <li>Service中AOP拦截Service时依赖Bean的代理对象，而不是Bean自身，因此 Service中内部类相互间调用不<br>能直接使用xx()或者this.xx()，要注入代理对象到Bean中，然后使用代理对象的方法进行调用</li>
 <li>由于Service层在Spring中注册的都是接口类型，所以代理对象只有对依赖接口的实现类方法进行拦截，实现类中新加的方法不能拦截</li>
 </ol>
 <p>..</p>
 
-          
-        
       
     </div>
 
@@ -393,156 +390,28 @@
       
 
       
-
-      
-
       
       
-        <div class="post-eof"></div>
+
       
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/10/23/hello-world/">
-
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Varshonwood">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Varshon Wood's BLOG">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/10/23/hello-world/" itemprop="url">
-                  Hello World
-                </a>
-              
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
             
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
+              <a href="/2018/10/23/hello-world/" rel="next" title="Hello World">
+                <i class="fa fa-chevron-left"></i> Hello World
+              </a>
             
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
             
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-
-              
-                
-              
-
-              <time title="Created: 2018-10-23 16:53:08" itemprop="dateCreated datePublished" datetime="2018-10-23T16:53:08+08:00">2018-10-23</time>
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
+          </div>
         </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
       
 
       
-        
-          
-            <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
-
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
       
     </footer>
   </div>
@@ -552,14 +421,15 @@
   </article>
 
 
-    
-  </section>
-
-  
+  </div>
 
 
           </div>
           
+
+  
+
+
 
         </div>
         
@@ -763,6 +633,10 @@
   
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=6.4.2"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=6.4.2"></script>
+
+
 
   
 
