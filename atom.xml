@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>Varshon Wood&#39;s BLOG</title>
+  
+  
+  <link href="/atom.xml" rel="self"/>
+  
+  <link href="http://yoursite.com/"/>
+  <updated>2019-04-12T09:08:23.431Z</updated>
+  <id>http://yoursite.com/</id>
+  
+  <author>
+    <name>Varshonwood</name>
+    
+  </author>
+  
+  <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title></title>
+    <link href="http://yoursite.com/2019/04/12/Spring%20Boot%20Maven%E5%9D%91%E6%B1%87%E6%80%BB/"/>
+    <id>http://yoursite.com/2019/04/12/Spring Boot Maven坑汇总/</id>
+    <published>2019-04-12T08:20:11.643Z</published>
+    <updated>2019-04-12T09:08:23.431Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="Spring-Boot-Maven-资料汇总"><a href="#Spring-Boot-Maven-资料汇总" class="headerlink" title="Spring Boot Maven 资料汇总"></a>Spring Boot Maven 资料汇总</h2><ul><li><a href="https://docs.spring.io/spring-boot/docs/2.1.4.RELEASE/reference/htmlsingle/#howto-build" title="Spring Boot 官方文档 编译篇目" target="_blank" rel="noopener">Spring Boot 官方文档 编译篇目</a></li><li><a href="https://docs.spring.io/spring-boot/docs/2.1.4.RELEASE/maven-plugin/index.html" title="Spring Boot Maven Plugin 文档" target="_blank" rel="noopener">Spring Boot Maven Plugin 文档</a></li></ul><h2 id="Spring-Boot-Maven-问题搜集"><a href="#Spring-Boot-Maven-问题搜集" class="headerlink" title="Spring Boot Maven 问题搜集"></a>Spring Boot Maven 问题搜集</h2><ol><li><p>Spring boot 聚合项目中子模块间相互引用报包不存在<br>问题描述:<br>聚合项目中存在两个子模块A和B,A引用B,打包时Maven报错A中依赖的B中类均找不到<br>产生原因：<br>Like a war file, a Spring Boot application is not intended to be used as a dependency. If your application contains classes that you want to share with other projects, the recommended approach is to move that code into a separate module. The separate module can then be depended upon by your application and other projects.<br>和war文件一样，一个Spring Boot 应用并不是用来作为依赖.如果你的应用包含了你想分享给其他项目的类.建议的方式是移动这些代码到一个单独的模块中.这些单独的模块可以被你的应用或者其他的项目引用</p><p>If you cannot rearrange your code as recommended above, Spring Boot’s Maven and Gradle plugins must be configured to produce a separate artifact that is suitable for use as a dependency. The executable archive cannot be used as a dependency as the executable jar format packages application classes in BOOT-INF/classes. This means that they cannot be found when the executable jar is used as a dependency.<br>如果您不能按照上面的建议重新部署代码，则必须配置Spring Boot的Maven和Gradle插件，以生成适合用作依赖项的单独模块。可执行存档不能用作依赖项，因为可执行jar格式打包BOOT-INF / classes中的应用程序类。这意味着当可执行jar用作依赖项时，无法找到它们。</p><p>To produce the two artifacts, one that can be used as a dependency and one that is executable, a classifier must be specified. This classifier is applied to the name of the executable archive, leaving the default archive for use as a dependency.<br>要生成两个编译后的jar文件，一个可以用作依赖项，另一个可执行，必须指定一个分类器。此分类器应用于可执行归档的名称，保留默认归档以用作依赖项。<br>To configure a classifier of exec in Maven, you can use the following configuration:<br>为了在Maven中配置一个可执行的分类器，你可以用下面的配置项：</p><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">build</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">plugins</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">plugin</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-boot-maven-plugin<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">configuration</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">classifier</span>&gt;</span>exec<span class="tag">&lt;/<span class="name">classifier</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">configuration</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">plugin</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">plugins</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">build</span>&gt;</span></span><br></pre></td></tr></table></figure></li></ol>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;Spring-Boot-Maven-资料汇总&quot;&gt;&lt;a href=&quot;#Spring-Boot-Maven-资料汇总&quot; class=&quot;headerlink&quot; title=&quot;Spring Boot Maven 资料汇总&quot;&gt;&lt;/a&gt;Spring Boot Maven 资料
+      
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Spring AOP 拦截Service 入参</title>
+    <link href="http://yoursite.com/2018/12/29/Spring%20AOP%E6%8B%A6%E6%88%AAService%E5%85%A5%E5%8F%82/"/>
+    <id>http://yoursite.com/2018/12/29/Spring AOP拦截Service入参/</id>
+    <published>2018-12-29T07:54:57.000Z</published>
+    <updated>2018-12-29T08:48:14.668Z</updated>
+    
+    <content type="html"><![CDATA[<p>Spring AOP拦截Service中内部相互调用的方法入参时需要注意一下几点：</p><ol><li>Service中AOP拦截Service时依赖Bean的代理对象，而不是Bean自身，因此 Service中内部类相互间调用不<br>能直接使用xx()或者this.xx()，要注入代理对象到Bean中，然后使用代理对象的方法进行调用</li><li>由于Service层在Spring中注册的都是接口类型，所以代理对象只有对依赖接口的实现类方法进行拦截，实现类中新加的方法不能拦截</li></ol><p>..</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;Spring AOP拦截Service中内部相互调用的方法入参时需要注意一下几点：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Service中AOP拦截Service时依赖Bean的代理对象，而不是Bean自身，因此 Service中内部类相互间调用不&lt;br&gt;能直接使用xx()或者th
+      
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Hello World</title>
+    <link href="http://yoursite.com/2018/10/23/hello-world/"/>
+    <id>http://yoursite.com/2018/10/23/hello-world/</id>
+    <published>2018-10-23T08:53:08.459Z</published>
+    <updated>2018-10-23T08:53:08.459Z</updated>
+    
+    <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p><h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p><h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p><h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p><h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;Welcome to &lt;a href=&quot;https://hexo.io/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Hexo&lt;/a&gt;! This is your very first post. Check &lt;a href=&quot;https://hexo.
+      
+    
+    </summary>
+    
+    
+  </entry>
+  
+</feed>
