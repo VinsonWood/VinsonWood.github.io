@@ -108,13 +108,17 @@
 
 
 
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Varshon Wood&#39;s BLOG">
-<meta property="og:url" content="http://yoursite.com/index.html">
+  <meta name="description" content="在多线程编程中，方法内变量为线程安全变量，实例变量非线程安全变量，如示例所示，notSafeParam为非线程安全变量，safeParam为线程安全变量： 12345678910111213141516public class Person &amp;#123;    int notSafeParam = 10000;    public int getNotSafeParam() &amp;#123;">
+<meta property="og:type" content="article">
+<meta property="og:title" content="synchronized同步代码知识点">
+<meta property="og:url" content="http://yoursite.com/2019/04/28/synchronized同步代码知识点/index.html">
 <meta property="og:site_name" content="Varshon Wood&#39;s BLOG">
+<meta property="og:description" content="在多线程编程中，方法内变量为线程安全变量，实例变量非线程安全变量，如示例所示，notSafeParam为非线程安全变量，safeParam为线程安全变量： 12345678910111213141516public class Person &amp;#123;    int notSafeParam = 10000;    public int getNotSafeParam() &amp;#123;">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2019-04-28T05:54:03.261Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Varshon Wood&#39;s BLOG">
+<meta name="twitter:title" content="synchronized同步代码知识点">
+<meta name="twitter:description" content="在多线程编程中，方法内变量为线程安全变量，实例变量非线程安全变量，如示例所示，notSafeParam为非线程安全变量，safeParam为线程安全变量： 12345678910111213141516public class Person &amp;#123;    int notSafeParam = 10000;    public int getNotSafeParam() &amp;#123;">
 
 
 
@@ -123,7 +127,7 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/">
+  <link rel="canonical" href="http://yoursite.com/2019/04/28/synchronized同步代码知识点/">
 
 
 
@@ -133,7 +137,7 @@
   };
 </script>
 
-  <title>Varshon Wood's BLOG</title>
+  <title>synchronized同步代码知识点 | Varshon Wood's BLOG</title>
   
 
 
@@ -180,8 +184,7 @@
     
   
 
-  <div class="container sidebar-position-left 
-  page-home">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
@@ -218,7 +221,7 @@
         
         
           
-          <li class="menu-item menu-item-home menu-item-active">
+          <li class="menu-item menu-item-home">
     <a href="/" rel="section">
       <i class="menu-item-icon fa fa-fw fa-home"></i> <br>Home</a>
   </li>
@@ -262,9 +265,9 @@
           
           <div id="content" class="content">
             
-  <section id="posts" class="posts-expand">
+
+  <div id="posts" class="posts-expand">
     
-      
 
   
 
@@ -296,11 +299,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/04/28/synchronized同步代码知识点/" itemprop="url">
-                  synchronized同步代码知识点
-                </a>
+          <h1 class="post-title" itemprop="name headline">synchronized同步代码知识点
               
             
           </h1>
@@ -363,9 +362,7 @@
       
 
       
-        
-          
-            <p>在多线程编程中，方法内变量为线程安全变量，实例变量非线程安全变量，如示例所示，notSafeParam为非线程安全变量，safeParam为线程安全变量：</p>
+        <p>在多线程编程中，方法内变量为线程安全变量，实例变量非线程安全变量，如示例所示，notSafeParam为非线程安全变量，safeParam为线程安全变量：</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Person</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> notSafeParam = <span class="number">10000</span>;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getNotSafeParam</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> notSafeParam;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setNotSafeParam</span><span class="params">(<span class="keyword">int</span> notSafeParam)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.notSafeParam = notSafeParam;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">add</span><span class="params">()</span> <span class="keyword">throws</span> Exception </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> safeParam = <span class="number">0</span>;</span><br><span class="line">        safeParam++;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>非线程安全变量在多线程操作中出现异常即为脏读现象，为解决脏读问题，使用synchronized关键字，分以下三种用法：</p>
 <ol>
@@ -405,8 +402,6 @@
 </li>
 </ol>
 
-          
-        
       
     </div>
 
@@ -426,162 +421,28 @@
       
 
       
-
-      
-
       
       
-        <div class="post-eof"></div>
+
       
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/12/Spring Boot Maven坑汇总/">
-
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Varshonwood">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Varshon Wood's BLOG">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/04/12/Spring Boot Maven坑汇总/" itemprop="url">
-                  Spring Boot Maven 坑汇总
-                </a>
-              
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
             
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
+              <a href="/2019/04/12/Spring Boot Maven坑汇总/" rel="next" title="Spring Boot Maven 坑汇总">
+                <i class="fa fa-chevron-left"></i> Spring Boot Maven 坑汇总
+              </a>
             
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
             
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-
-              
-                
-              
-
-              <time title="Created: 2019-04-12 17:12:09 / Modified: 17:13:36" itemprop="dateCreated datePublished" datetime="2019-04-12T17:12:09+08:00">2019-04-12</time>
-            
-
-            
-              
-
-              
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
+          </div>
         </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
       
 
       
-        
-          
-            <h2 id="Spring-Boot-Maven-资料汇总"><a href="#Spring-Boot-Maven-资料汇总" class="headerlink" title="Spring Boot Maven 资料汇总"></a>Spring Boot Maven 资料汇总</h2><ul>
-<li><a href="https://docs.spring.io/spring-boot/docs/2.1.4.RELEASE/reference/htmlsingle/#howto-build" title="Spring Boot 官方文档 编译篇目" target="_blank" rel="noopener">Spring Boot 官方文档 编译篇目</a></li>
-<li><a href="https://docs.spring.io/spring-boot/docs/2.1.4.RELEASE/maven-plugin/index.html" title="Spring Boot Maven Plugin 文档" target="_blank" rel="noopener">Spring Boot Maven Plugin 文档</a></li>
-</ul>
-<h2 id="Spring-Boot-Maven-问题搜集"><a href="#Spring-Boot-Maven-问题搜集" class="headerlink" title="Spring Boot Maven 问题搜集"></a>Spring Boot Maven 问题搜集</h2><ol>
-<li><p>Spring boot 聚合项目中子模块间相互引用报包不存在<br>问题描述:<br>聚合项目中存在两个子模块A和B,A引用B,打包时Maven报错A中依赖的B中类均找不到<br>产生原因：<br>Like a war file, a Spring Boot application is not intended to be used as a dependency. If your application contains classes that you want to share with other projects, the recommended approach is to move that code into a separate module. The separate module can then be depended upon by your application and other projects.<br>和war文件一样，一个Spring Boot 应用并不是用来作为依赖.如果你的应用包含了你想分享给其他项目的类.建议的方式是移动这些代码到一个单独的模块中.这些单独的模块可以被你的应用或者其他的项目引用</p>
-<p>If you cannot rearrange your code as recommended above, Spring Boot’s Maven and Gradle plugins must be configured to produce a separate artifact that is suitable for use as a dependency. The executable archive cannot be used as a dependency as the executable jar format packages application classes in BOOT-INF/classes. This means that they cannot be found when the executable jar is used as a dependency.<br>如果您不能按照上面的建议重新部署代码，则必须配置Spring Boot的Maven和Gradle插件，以生成适合用作依赖项的单独模块。可执行存档不能用作依赖项，因为可执行jar格式打包BOOT-INF / classes中的应用程序类。这意味着当可执行jar用作依赖项时，无法找到它们。</p>
-<p>To produce the two artifacts, one that can be used as a dependency and one that is executable, a classifier must be specified. This classifier is applied to the name of the executable archive, leaving the default archive for use as a dependency.<br>要生成两个编译后的jar文件，一个可以用作依赖项，另一个可执行，必须指定一个分类器。此分类器应用于可执行归档的名称，保留默认归档以用作依赖项。<br>To configure a classifier of exec in Maven, you can use the following configuration:<br>为了在Maven中配置一个可执行的分类器，你可以用下面的配置项：</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">build</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">plugins</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">plugin</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-boot-maven-plugin<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">configuration</span>&gt;</span></span><br><span class="line">				<span class="tag">&lt;<span class="name">classifier</span>&gt;</span>exec<span class="tag">&lt;/<span class="name">classifier</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;/<span class="name">configuration</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;/<span class="name">plugin</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">plugins</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">build</span>&gt;</span></span><br></pre></td></tr></table></figure>
-</li>
-</ol>
-
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
       
     </footer>
   </div>
@@ -591,303 +452,15 @@
   </article>
 
 
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/12/29/Spring AOP拦截Service入参/">
-
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Varshonwood">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Varshon Wood's BLOG">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/12/29/Spring AOP拦截Service入参/" itemprop="url">
-                  Spring AOP 拦截Service 入参
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-
-              
-                
-              
-
-              <time title="Created: 2018-12-29 15:54:57 / Modified: 16:48:14" itemprop="dateCreated datePublished" datetime="2018-12-29T15:54:57+08:00">2018-12-29</time>
-            
-
-            
-              
-
-              
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>Spring AOP拦截Service中内部相互调用的方法入参时需要注意一下几点：</p>
-<ol>
-<li>Service中AOP拦截Service时依赖Bean的代理对象，而不是Bean自身，因此 Service中内部类相互间调用不<br>能直接使用xx()或者this.xx()，要注入代理对象到Bean中，然后使用代理对象的方法进行调用</li>
-<li>由于Service层在Spring中注册的都是接口类型，所以代理对象只有对依赖接口的实现类方法进行拦截，实现类中新加的方法不能拦截</li>
-</ol>
-<p>..</p>
-
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
   </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/10/23/hello-world/">
-
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Varshonwood">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Varshon Wood's BLOG">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/10/23/hello-world/" itemprop="url">
-                  Hello World
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-
-              
-                
-              
-
-              <time title="Created: 2018-10-23 16:53:08" itemprop="dateCreated datePublished" datetime="2018-10-23T16:53:08+08:00">2018-10-23</time>
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
-
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-  </section>
-
-  
 
 
           </div>
           
+
+  
+
+
 
         </div>
         
@@ -1091,6 +664,10 @@
   
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=6.4.2"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=6.4.2"></script>
+
+
 
   
 
