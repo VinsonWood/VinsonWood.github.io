@@ -108,18 +108,17 @@
 
 
 
-  <meta name="description" content="Spring Boot Maven 资料汇总 Spring Boot 官方文档 编译篇目 Spring Boot Maven Plugin 文档  Spring Boot Maven 问题搜集 Spring boot 聚合项目中子模块间相互引用报包不存在问题描述:聚合项目中存在两个子模块A和B,A引用B,打包时Maven报错A中依赖的B中类均找不到产生原因：Like a war file, a S">
-<meta property="og:type" content="article">
-<meta property="og:title" content="Spring Boot Maven 坑汇总">
-<meta property="og:url" content="http://yoursite.com/2019/04/12/Spring Boot Maven坑汇总/index.html">
+  <meta property="og:type" content="article">
+<meta property="og:title" content="test">
+<meta property="og:url" content="http://yoursite.com/2019/08/23/test/index.html">
 <meta property="og:site_name" content="Varshon Wood&#39;s BLOG">
-<meta property="og:description" content="Spring Boot Maven 资料汇总 Spring Boot 官方文档 编译篇目 Spring Boot Maven Plugin 文档  Spring Boot Maven 问题搜集 Spring boot 聚合项目中子模块间相互引用报包不存在问题描述:聚合项目中存在两个子模块A和B,A引用B,打包时Maven报错A中依赖的B中类均找不到产生原因：Like a war file, a S">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-04-12T09:13:36.872Z">
+<meta property="og:updated_time" content="2019-08-23T06:29:27.355Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Spring Boot Maven 坑汇总">
-<meta name="twitter:description" content="Spring Boot Maven 资料汇总 Spring Boot 官方文档 编译篇目 Spring Boot Maven Plugin 文档  Spring Boot Maven 问题搜集 Spring boot 聚合项目中子模块间相互引用报包不存在问题描述:聚合项目中存在两个子模块A和B,A引用B,打包时Maven报错A中依赖的B中类均找不到产生原因：Like a war file, a S">
+<meta name="twitter:title" content="test">
 
+
+  
 
 
   <link rel="alternate" href="/atom.xml" title="Varshon Wood's BLOG" type="application/atom+xml">
@@ -127,7 +126,7 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2019/04/12/Spring Boot Maven坑汇总/">
+  <link rel="canonical" href="http://yoursite.com/2019/08/23/test/">
 
 
 
@@ -137,7 +136,7 @@
   };
 </script>
 
-  <title>Spring Boot Maven 坑汇总 | Varshon Wood's BLOG</title>
+  <title>test | Varshon Wood's BLOG</title>
   
 
 
@@ -282,7 +281,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/12/Spring Boot Maven坑汇总/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/08/23/test/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Varshonwood">
@@ -299,7 +298,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Spring Boot Maven 坑汇总
+          <h1 class="post-title" itemprop="name headline">test
               
             
           </h1>
@@ -324,7 +323,7 @@
                 
               
 
-              <time title="Created: 2019-04-12 17:12:09 / Modified: 17:13:36" itemprop="dateCreated datePublished" datetime="2019-04-12T17:12:09+08:00">2019-04-12</time>
+              <time title="Created: 2019-08-23 14:29:13 / Modified: 14:29:27" itemprop="dateCreated datePublished" datetime="2019-08-23T14:29:13+08:00">2019-08-23</time>
             
 
             
@@ -362,18 +361,7 @@
       
 
       
-        <h2 id="Spring-Boot-Maven-资料汇总"><a href="#Spring-Boot-Maven-资料汇总" class="headerlink" title="Spring Boot Maven 资料汇总"></a>Spring Boot Maven 资料汇总</h2><ul>
-<li><a href="https://docs.spring.io/spring-boot/docs/2.1.4.RELEASE/reference/htmlsingle/#howto-build" title="Spring Boot 官方文档 编译篇目" target="_blank" rel="noopener">Spring Boot 官方文档 编译篇目</a></li>
-<li><a href="https://docs.spring.io/spring-boot/docs/2.1.4.RELEASE/maven-plugin/index.html" title="Spring Boot Maven Plugin 文档" target="_blank" rel="noopener">Spring Boot Maven Plugin 文档</a></li>
-</ul>
-<h2 id="Spring-Boot-Maven-问题搜集"><a href="#Spring-Boot-Maven-问题搜集" class="headerlink" title="Spring Boot Maven 问题搜集"></a>Spring Boot Maven 问题搜集</h2><ol>
-<li><p>Spring boot 聚合项目中子模块间相互引用报包不存在<br>问题描述:<br>聚合项目中存在两个子模块A和B,A引用B,打包时Maven报错A中依赖的B中类均找不到<br>产生原因：<br>Like a war file, a Spring Boot application is not intended to be used as a dependency. If your application contains classes that you want to share with other projects, the recommended approach is to move that code into a separate module. The separate module can then be depended upon by your application and other projects.<br>和war文件一样，一个Spring Boot 应用并不是用来作为依赖.如果你的应用包含了你想分享给其他项目的类.建议的方式是移动这些代码到一个单独的模块中.这些单独的模块可以被你的应用或者其他的项目引用</p>
-<p>If you cannot rearrange your code as recommended above, Spring Boot’s Maven and Gradle plugins must be configured to produce a separate artifact that is suitable for use as a dependency. The executable archive cannot be used as a dependency as the executable jar format packages application classes in BOOT-INF/classes. This means that they cannot be found when the executable jar is used as a dependency.<br>如果您不能按照上面的建议重新部署代码，则必须配置Spring Boot的Maven和Gradle插件，以生成适合用作依赖项的单独模块。可执行存档不能用作依赖项，因为可执行jar格式打包BOOT-INF / classes中的应用程序类。这意味着当可执行jar用作依赖项时，无法找到它们。</p>
-<p>To produce the two artifacts, one that can be used as a dependency and one that is executable, a classifier must be specified. This classifier is applied to the name of the executable archive, leaving the default archive for use as a dependency.<br>要生成两个编译后的jar文件，一个可以用作依赖项，另一个可执行，必须指定一个分类器。此分类器应用于可执行归档的名称，保留默认归档以用作依赖项。<br>To configure a classifier of exec in Maven, you can use the following configuration:<br>为了在Maven中配置一个可执行的分类器，你可以用下面的配置项：</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">build</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">plugins</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">plugin</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-boot-maven-plugin<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">configuration</span>&gt;</span></span><br><span class="line">				<span class="tag">&lt;<span class="name">classifier</span>&gt;</span>exec<span class="tag">&lt;/<span class="name">classifier</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;/<span class="name">configuration</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;/<span class="name">plugin</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">plugins</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">build</span>&gt;</span></span><br></pre></td></tr></table></figure>
-</li>
-</ol>
-
+        
       
     </div>
 
@@ -400,8 +388,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/12/29/Spring AOP拦截Service入参/" rel="next" title="Spring AOP 拦截Service 入参">
-                <i class="fa fa-chevron-left"></i> Spring AOP 拦截Service 入参
+              <a href="/2019/04/28/synchronized同步代码知识点/" rel="next" title="synchronized同步代码知识点">
+                <i class="fa fa-chevron-left"></i> synchronized同步代码知识点
               </a>
             
           </div>
@@ -409,10 +397,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/04/28/synchronized同步代码知识点/" rel="prev" title="synchronized同步代码知识点">
-                synchronized同步代码知识点 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -457,17 +441,8 @@
       
 
       
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
-            Table of Contents
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
-            Overview
-          </li>
-        </ul>
-      
 
-      <section class="site-overview-wrap sidebar-panel">
+      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
             
@@ -519,22 +494,6 @@
         </div>
       </section>
 
-      
-      <!--noindex-->
-        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-
-            
-              
-            
-
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Spring-Boot-Maven-资料汇总"><span class="nav-number">1.</span> <span class="nav-text">Spring Boot Maven 资料汇总</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Spring-Boot-Maven-问题搜集"><span class="nav-number">2.</span> <span class="nav-text">Spring Boot Maven 问题搜集</span></a></li></ol></div>
-            
-
-          </div>
-        </section>
-      <!--/noindex-->
       
 
       

@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://yoursite.com/2019/08/23/test/</loc>
+    
+    <lastmod>2019-08-23T06:29:27.355Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://yoursite.com/2019/04/28/synchronized%E5%90%8C%E6%AD%A5%E4%BB%A3%E7%A0%81%E7%9F%A5%E8%AF%86%E7%82%B9/</loc>
     
     <lastmod>2019-04-28T05:54:03.261Z</lastmod>
